@@ -1,9 +1,25 @@
 {% extends 'base.html' %}
 
 {% block head %}
-
+    <link rel="stylesheet" href=" {{ url_for ('static', filename = 'css/signup.css') }} ">
 {% endblock %}
 
 {% block body %}
+
+    <div class="container">
+
+        <form method="POST">
+            <input type="text" name="email" id="email" placeholder="ایمیل"> <br>
+
+            <input type="password" name="password" id="password" placeholder="رمز"> <br>
+
+            <button type="submit">
+                ورود
+            </button>
+
+        </form>
+
+
+    </div>
 
 {% endblock %}

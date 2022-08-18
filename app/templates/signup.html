@@ -1,11 +1,43 @@
 {% extends 'base.html' %}
 
 {% block head %}
+    <link rel="stylesheet" href=" {{ url_for ('static', filename = 'css/signup.css') }} ">
+
+    <title>Signup</title>
 
 {% endblock %}
 
 {% block body %}
 
-    
+    <div class = "container">
+
+        <form method="POST">
+            <input type="text" name="email" id="email" placeholder="ایمیل"> <br>
+            <input type="text" name="username" id="username" placeholder="نام کاربری"> <br>
+            <input type="text" name="first_name" id="first_name" placeholder="نام"> <br>
+            <input type="text" name="last_name" id="last_name" placeholder="نام خانوادگی"> <br>
+            <input type="password" name="password" id="password" placeholder="رمز"> <br>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="تکرار رمز"> <br>
+
+            <button type="submit"> ثبت نام </button>
+        </form>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+                    {% for category, msg in messages %}
+                        {% if category == 'error' %}
+                            <p style="color: red;"> {{ msg }} </p>
+
+                        {% else %}
+                            <p style="color: green;"> {{ msg }} </p>
+                        {% endif %}
+
+                    {% endfor %}
+            {% endif %}
+
+        {% endwith %}
+
+    </div>
 
 {% endblock %}
